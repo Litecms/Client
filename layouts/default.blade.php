@@ -15,16 +15,19 @@
     </head>
 
         {!! Theme::partial('header') !!}
+        <section class="dashboard">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3">
+                    <div class="col-sm-4 col-md-3">
                         {!! Theme::partial('aside') !!}
                     </div>
-                    <div class="col-md-9 col-sm-9" style="min-height: 900px">
+                    <div class="col-sm-8 col-md-9">
                         {!! Theme::content() !!}
                     </div>
                 </div>
             </div>
+        </section>
+
 
             {!! Theme::partial('footer') !!}
 

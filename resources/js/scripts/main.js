@@ -27,27 +27,84 @@ $(function () {
         }
     });
 
-     $('input[type="datetime"], .pickdatetime').datetimepicker({
-        format:'Y-m-d H:i',
-    }).prop('type','text');
+    $('input[type="datetime"], .pickdatetime')
+    .prop('type','text')
+    .after(function(){
+        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+    })
+    .val(function(index, currentvalue){
+        currentvalue = $(this).prop("defaultValue");
+        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY hh:mm A');
+    })
+    .datetimepicker({
+        viewMode: 'days',
+        format: 'DD MMM YYYY hh:mm A'
+    })
+    .on('dp.change', function(){
+        currentvalue = $(this).val();
+        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+        alt = "#alt" + $(this).attr('name');
+        $(alt).val(currentvalue);
+    });
 
-    $('input[type="date"], .pickdate').datetimepicker({
-        timepicker:false,
-        format:'Y-m-d',
-    }).prop('type','text');
+    $('input[type="date"], .pickdate')
+    .prop('type','text')
+    .after(function(){
+        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+    })
+    .val(function(index, currentvalue){
+        currentvalue = $(this).prop("defaultValue");
+        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
+    })
+    .datetimepicker({
+        viewMode: 'days',
+        format: 'DD MMM YYYY',
+    })
+    .on('dp.change', function(){
+        currentvalue = $(this).val();
+        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+        alt = "#alt" + $(this).attr('name');
+        $(alt).val(currentvalue);
+    });
 
-    $('input[type="time"], .picktime').datetimepicker({
-        datepicker:false,
-        format:'H:i',
-    }).prop('type','text');
+    $('input[type="time"], .picktime')
+    .prop('type','text')
+    .after(function(){
+        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+    })
+    .val(function(index, currentvalue){
+        currentvalue = $(this).prop("defaultValue");
+        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh:SS A');
+    })
+    .datetimepicker({
+        format: 'hh:SS A'
+    })
+    .on('dp.change', function(){
+        currentvalue = $(this).val();
+        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+        alt = "#alt" + $(this).attr('name');
+        $(alt).val(currentvalue);
+    });
 
-    $('input[type="period"], .pickperiod').datetimepicker({
-        format:'Y-m-d H:i',
-    }).prop('type','text');
-
-    $("#datepicker").datepicker({todayHighlight: true}); 
-    $('#datepicker-pastdisabled').datepicker({ todayHighlight: true, startDate: "-3d", endDate: "+3d" });
-    
+    $('input[type="period"], .pickperiod')
+    .prop('type','text')
+    .after(function(){
+        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+    })
+    .val(function(index, currentvalue){
+        currentvalue = $(this).prop("defaultValue");
+        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh:SS A');
+    })
+    .datetimepicker({
+        viewMode: 'days',
+        format: 'hh:SS A'
+    })
+    .on('dp.change', function(){
+        currentvalue = $(this).val();
+        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+        alt = "#alt" + $(this).attr('name');
+        $(alt).val(currentvalue);
+    });
 
     $.ajaxSetup({
         headers: {
@@ -92,23 +149,84 @@ $( document ).ajaxComplete(function() {
         }
     });
 
-    $('input[type="datetime"], .pickdatetime').datetimepicker({
-        format:'Y-m-d H:i',
-    }).prop('type','text');
+    $('input[type="datetime"], .pickdatetime')
+    .prop('type','text')
+    .after(function(){
+        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+    })
+    .val(function(index, currentvalue){
+        currentvalue = $(this).prop("defaultValue");
+        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY hh:mm A');
+    })
+    .datetimepicker({
+        viewMode: 'days',
+        format: 'DD MMM YYYY hh:mm A'
+    })
+    .on('dp.change', function(){
+        currentvalue = $(this).val();
+        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+        alt = "#alt" + $(this).attr('name');
+        $(alt).val(currentvalue);
+    });
 
-    $('input[type="date"], .pickdate').datetimepicker({
-        timepicker:false,
-        format:'Y-m-d',
-    }).prop('type','text');
+    $('input[type="date"], .pickdate')
+    .prop('type','text')
+    .after(function(){
+        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+    })
+    .val(function(index, currentvalue){
+        currentvalue = $(this).prop("defaultValue");
+        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('DD MMM YYYY');
+    })
+    .datetimepicker({
+        viewMode: 'days',
+        format: 'DD MMM YYYY',
+    })
+    .on('dp.change', function(){
+        currentvalue = $(this).val();
+        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+        alt = "#alt" + $(this).attr('name');
+        $(alt).val(currentvalue);
+    });
 
-    $('input[type="time"], .picktime').datetimepicker({
-        datepicker:false,
-        format:'H:i',
-    }).prop('type','text');
+    $('input[type="time"], .picktime')
+    .prop('type','text')
+    .after(function(){
+        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+    })
+    .val(function(index, currentvalue){
+        currentvalue = $(this).prop("defaultValue");
+        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh:SS A');
+    })
+    .datetimepicker({
+        format: 'hh:SS A'
+    })
+    .on('dp.change', function(){
+        currentvalue = $(this).val();
+        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+        alt = "#alt" + $(this).attr('name');
+        $(alt).val(currentvalue);
+    });
 
-    $('input[type="period"], .pickperiod').datetimepicker({
-        format:'Y-m-d H:i',
-    }).prop('type','text');
+    $('input[type="period"], .pickperiod')
+    .prop('type','text')
+    .after(function(){
+        return "<input type='hidden' name="+$(this).attr('name')+" id=alt"+$(this).attr('name')+" value='"+$(this).prop("defaultValue")+"'>";
+    })
+    .val(function(index, currentvalue){
+        currentvalue = $(this).prop("defaultValue");
+        return moment(currentvalue, 'YYYY-MM-DD hh:mm:ss').format('hh:SS A');
+    })
+    .datetimepicker({
+        viewMode: 'days',
+        format: 'hh:SS A'
+    })
+    .on('dp.change', function(){
+        currentvalue = $(this).val();
+        currentvalue =  moment(currentvalue, 'DD MMM YYYY').format('YYYY-MM-DD');
+        alt = "#alt" + $(this).attr('name');
+        $(alt).val(currentvalue);
+    });
 
 /*
     $('input').iCheck({

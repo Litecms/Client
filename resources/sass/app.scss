@@ -1,7 +1,17 @@
+
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
 
 // Bootstrap
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~fullcalendar/dist/fullcalendar.css";
 @import "~datatables.net-bs/css/dataTables.bootstrap.css";
@@ -12,4 +22,5 @@
 @import "~eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css";
 @import "~summernote/dist/summernote.css";
 @import "~cropper/dist/cropper.css";
-@import "~toastr/build/toastr.css";
+@import "../css/settings.css";
+@import "../css/theme.css";
